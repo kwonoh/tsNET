@@ -69,7 +69,7 @@ def p_ij_conditional_var(X, sigma):
 
     row_sum = T.sum(esqdistance_zd, axis=1).reshape((N, 1))
 
-    return esqdistance_zd / row_sum  # Possibly dangerous
+    return esqdistance_zd / (row_sum + 1e-9)
 
 
 # Symmetrized probabilities of picking pairs in high-dim space.
